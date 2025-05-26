@@ -57,11 +57,11 @@ CREATE TABLE ecommerce.products (
     price DECIMAL(10,2) CHECK (price > 0)
 );
 
-#### স্কিমায় ভিউ তৈরি
+#### স্কিমায় ভিউ তৈরি :
 CREATE VIEW ecommerce.expensive_products AS
 SELECT * FROM ecommerce.products WHERE price > 1000;
 
-#### স্কিমা থেকে ডাটা অ্যাক্সেস
+#### স্কিমা থেকে ডাটা অ্যাক্সেস :
 SELECT * FROM ecommerce.expensive_products;
 
 একই ডেটাবেজে একাধিক টেবিলের নাম একই হতে পারে যদি তারা আলাদা স্কিমার ভেতরে থাকে।
@@ -171,7 +171,8 @@ WHERE condition;
 | 3 | Tamanna | CSE | 3.78 |
 | 4 | Fatema | LAW | 3.71 |  
 
-**উদাহরণ ১:**
+**উদাহরণ ১:**  
+
 CSE ডিপার্টমেন্টের ছাত্রদের নাম দেখতে চাইলে:  
 SELECT name FROM students  
 WHERE department = 'CSE';  
@@ -180,13 +181,16 @@ Noso
 Tamanna  
 এখানে WHERE department = 'CSE' বলেছে, তাই শুধুমাত্র যাদের ডিপার্টমেন্ট CSE, তাদের নাম দেখানো হয়েছে ।  
 
-**উদাহরণ ২:**  
+**উদাহরণ ২:**   
+
 UPDATE students  
 SET gpa = 3.70  
 WHERE name = 'Farzana';   
 এখানে SET gpa = 3.70 → মান পরিবর্তন হচ্ছে। WHERE name = 'Farzana' → শুধুমাত্র যেই রো-তে নাম Farzana, সেটার উপরই এই পরিবর্তন হবে।
 যদি WHERE ক্লজ না দিতাম, তাহলে সব ছাত্রের GPA হয়ে যেত ৩.৭০ — যা মারাত্মক ভুল!  
+
 **উদাহরণ ৩:**  
+
 DELETE FROM students
 WHERE department = 'ENG';
 এখানে FROM students কোন টেবিল থেকে মুছবে । WHERE department = 'BBA' → যাদের ডিপার্টমেন্ট BBA, কেবল তাদেরই ডিলিট করবে।
